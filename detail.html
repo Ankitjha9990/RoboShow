@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View project details and submit feedback">
+    <title>Project Details - RoboShow</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">RoboShow</a>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="upload.html">Upload Project</a></li>
+                <li><a href="index.html#top-rated">Top Rated</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Detail Page Content -->
+    <div class="detail-page">
+        <div class="container">
+
+            <!-- Back Button -->
+            <a href="index.html" class="back-button">Back to Gallery</a>
+
+            <!-- Project Details -->
+            <div class="project-detail">
+
+                <!-- Hero Image -->
+                <div class="project-hero">
+                    <img id="project-hero-img" src="assets/placeholder.png" alt="Project">
+                </div>
+
+                <!-- Project Content -->
+                <div class="project-content">
+
+                    <!-- Project Header -->
+                    <div class="project-header">
+                        <h1 id="project-title">Project Title</h1>
+
+                        <div class="project-meta">
+                            <span class="project-team" id="project-team">Team Name</span>
+                            <span class="project-date" id="project-date">Date</span>
+                            <span class="project-category" id="project-category">Category</span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div>
+                        <h3>About This Project</h3>
+                        <p class="project-description" id="project-description">
+                            Project description will appear here...
+                        </p>
+                    </div>
+
+                    <!-- Technologies -->
+                    <div class="project-technologies">
+                        <h3>Technologies Used</h3>
+                        <div class="tech-list" id="tech-list">
+                            <!-- Rendered by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Rating Section -->
+                    <div class="rating-section">
+                        <div class="rating-header">
+                            <h3>Rate This Project</h3>
+                            <p>Click on the stars below to rate this project</p>
+                        </div>
+                        <div class="rating-display">
+                            <div id="rating-stars" class="rating-container">
+                                <!-- Stars rendered by JavaScript -->
+                            </div>
+                            <div>
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--primary-blue);"
+                                    id="avg-rating">0</div>
+                                <p class="rating-info" id="rating-info">No ratings yet</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Feedback Section -->
+            <div class="feedback-section">
+
+                <!-- Feedback Form -->
+                <div class="feedback-form">
+                    <h3>💬 Leave Your Feedback</h3>
+                    <form id="feedback-form">
+
+                        <div class="form-group">
+                            <label for="feedback-name" class="form-label">Your Name (Optional)</label>
+                            <input type="text" id="feedback-name" class="form-input"
+                                placeholder="Enter your name or leave anonymous">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="feedback-comment" class="form-label">Your Comment *</label>
+                            <textarea id="feedback-comment" class="form-textarea"
+                                placeholder="Share your thoughts about this project..." required></textarea>
+                        </div>
+
+                        <div class="feedback-form-actions">
+                            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- Feedback List -->
+                <div>
+                    <h3>📝 Feedback & Reviews</h3>
+                    <div class="feedback-list" id="feedback-list">
+                        <!-- Rendered by JavaScript -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 RoboShow. Built with ❤️ for robotics enthusiasts.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/storage.js"></script>
+    <script src="js/ratings.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/detail.js"></script>
+
+</body>
+
+</html>

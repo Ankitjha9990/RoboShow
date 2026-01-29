@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create an account on RoboShow">
+    <title>Create Account - RoboShow</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/icons.css">
+</head>
+
+<body>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-button" title="Back to Home">
+        <svg class="icon icon-md">
+            <use xlink:href="assets/icons.svg#home"></use>
+        </svg>
+    </a>
+
+    <div class="login-page">
+
+        <!-- Left Side - Hero Section -->
+        <div class="login-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-highlight">Begin Your</span><br>
+                    Journey With Us!
+                </h1>
+                <p class="hero-subtitle">Join the robotics community today</p>
+            </div>
+        </div>
+
+        <!-- Right Side - Signup Form -->
+        <div class="login-form-section">
+            <div class="login-form-container">
+
+                <div class="login-form-header">
+                    <h1>CREATE ACCOUNT</h1>
+                    <p>Start showcasing your projects</p>
+                </div>
+
+                <form class="login-form" id="signup-form">
+
+                    <!-- Full Name Field -->
+                    <div class="form-group-login">
+                        <input type="text" id="signup-name" class="form-input-login" placeholder="Full Name" required>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group-login">
+                        <input type="email" id="signup-email" class="form-input-login" placeholder="Email" required>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group-login">
+                        <input type="password" id="signup-password" class="form-input-login" placeholder="Password"
+                            required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('signup-password')">
+                            <svg class="icon">
+                                <use xlink:href="assets/icons.svg#eye"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div class="form-group-login">
+                        <input type="password" id="signup-confirm-password" class="form-input-login"
+                            placeholder="Confirm Password" required>
+                        <button type="button" class="password-toggle"
+                            onclick="togglePassword('signup-confirm-password')">
+                            <svg class="icon">
+                                <use xlink:href="assets/icons.svg#eye"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Create Button -->
+                    <button type="submit" class="btn-login">
+                        Create
+                    </button>
+
+                </form>
+
+                <!-- Footer Links -->
+                <div class="login-footer">
+                    <p class="divider">Already have an account?</p>
+                    <a href="login.html">Login</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+    <script>
+        // Password toggle functionality
+        function togglePassword(fieldId) {
+            const passwordInput = document.getElementById(fieldId);
+            const toggleButton = passwordInput.nextElementSibling.querySelector('svg use');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.setAttribute('xlink:href', 'assets/icons.svg#eye-off');
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.setAttribute('xlink:href', 'assets/icons.svg#eye');
+            }
+        }
+
+        // Form submission
+        document.getElementById('signup-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('signup-name').value.trim();
+            const email = document.getElementById('signup-email').value.trim();
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm-password').value;
+
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            // Attempt registration
+            const result = register(name, email, password);
+
+            if (result.success) {
+                alert('Account created successfully! Welcome to RoboShow!');
+                window.location.href = 'index.html';
+            } else {
+                alert('Error: ' + result.error);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

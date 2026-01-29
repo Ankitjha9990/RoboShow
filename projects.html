@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse all robotics projects on RoboShow">
+    <title>All Projects - RoboShow</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/icons.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <svg class="icon icon-lg icon-primary">
+                    <use xlink:href="assets/icons.svg#logo"></use>
+                </svg>
+                RoboShow
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="upload.html">Upload Project</a></li>
+                <li><a href="index.html#top-rated">Top Rated</a></li>
+                <li><a href="index.html#about">FAQ's</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container header-content">
+            <div class="header-title-section">
+                <h1>All Projects</h1>
+                <p>Browse and filter through all robotics projects</p>
+            </div>
+            <div class="header-actions">
+                <div class="search-box">
+                    <svg class="icon icon-search icon-primary">
+                        <use xlink:href="assets/icons.svg#search"></use>
+                    </svg>
+                    <input type="text" id="search-input" placeholder="Search projects...">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sorting Controls -->
+    <section class="sorting-controls-section">
+        <div class="container">
+            <div class="sorting-controls-container">
+                <div class="sorting-controls-left">
+                    <label for="sort-select" class="sorting-label">Sort by:</label>
+                    <select id="sort-select" class="form-select sorting-select">
+                        <option value="rating-desc">Highest Rated</option>
+                        <option value="rating-asc">Lowest Rated</option>
+                        <option value="date-desc">Newest First</option>
+                        <option value="date-asc">Oldest First</option>
+                        <option value="title-asc">Title (A-Z)</option>
+                        <option value="title-desc">Title (Z-A)</option>
+                    </select>
+                </div>
+                <div id="project-count" class="project-count">
+                    <!-- Updated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="gallery-section gallery-section-top">
+        <div class="container">
+            <div class="gallery-grid" id="projects-grid">
+                <!-- Rendered by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>RoboShow</h4>
+                    <p>A platform for robotics enthusiasts to showcase their projects and receive valuable feedback
+                        from peers and mentors.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="upload.html">Upload Project</a></li>
+                        <li><a href="index.html#top-rated">Top Rated</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@roboshow.com">info@roboshow.com</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 RoboShow. Built with love for robotics enthusiasts.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ratings.js"></script>
+    <script src="js/render.js"></script>
+    <script>
+        // Initialize projects page
+        let allProjects = [];
+        let filteredProjects = [];
+
+        // Initialize on page load
+        function initProjectsPage() {
+            initializeSampleData();
+            allProjects = getAllProjects();
+            filteredProjects = [...allProjects];
+            renderProjects();
+            updateProjectCount();
+
+            // Attach event listeners
+            document.getElementById('sort-select').addEventListener('change', handleSort);
+            document.getElementById('search-input').addEventListener('input', handleSearch);
+
+            // Initialize auth
+            initAuth();
+        }
+
+        // Render all projects
+        function renderProjects() {
+            const container = document.getElementById('projects-grid');
+
+            if (filteredProjects.length === 0) {
+                showEmptyState(container, 'No projects found matching your criteria');
+                return;
+            }
+
+            container.innerHTML = filteredProjects
+                .map(project => renderProjectCard(project))
+                .join('');
+        }
+
+        // Handle sorting
+        function handleSort() {
+            const sortValue = document.getElementById('sort-select').value;
+            const [criteria, order] = sortValue.split('-');
+
+            filteredProjects.sort((a, b) => {
+                let comparison = 0;
+
+                switch (criteria) {
+                    case 'rating':
+                        comparison = (b.avgRating || 0) - (a.avgRating || 0);
+                        break;
+                    case 'date':
+                        const dateA = new Date(a.date);
+                        const dateB = new Date(b.date);
+                        comparison = dateB - dateA;
+                        break;
+                    case 'title':
+                        comparison = a.title.localeCompare(b.title);
+                        break;
+                }
+
+                return order === 'asc' ? -comparison : comparison;
+            });
+
+            renderProjects();
+        }
+
+        // Handle search
+        function handleSearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+
+            if (searchTerm === '') {
+                filteredProjects = [...allProjects];
+            } else {
+                filteredProjects = allProjects.filter(project =>
+                    project.title.toLowerCase().includes(searchTerm) ||
+                    project.description.toLowerCase().includes(searchTerm) ||
+                    project.team.toLowerCase().includes(searchTerm) ||
+                    project.category.toLowerCase().includes(searchTerm) ||
+                    project.technologies.some(tech => tech.toLowerCase().includes(searchTerm))
+                );
+            }
+
+            handleSort(); // Re-sort after filtering
+            updateProjectCount();
+        }
+
+        // Update project count
+        function updateProjectCount() {
+            const count = filteredProjects.length;
+            const total = allProjects.length;
+            const countElement = document.getElementById('project-count');
+
+            if (count === total) {
+                countElement.textContent = `Showing all ${total} project${total !== 1 ? 's' : ''}`;
+            } else {
+                countElement.textContent = `Showing ${count} of ${total} project${total !== 1 ? 's' : ''}`;
+            }
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initProjectsPage);
+        } else {
+            initProjectsPage();
+        }
+    </script>
+
+</body>
+
+</html>

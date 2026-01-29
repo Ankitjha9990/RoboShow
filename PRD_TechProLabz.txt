@@ -1,0 +1,402 @@
+📘 Product Requirements Document (PRD)
+
+Project Name: RoboShow – Robotics Project Showcase & Feedback Platform
+
+1. Product Overview
+
+RoboShow is a web-based platform that enables students and teams to showcase their robotics projects and receive structured feedback through ratings and comments.
+
+The system simulates a real-world technical exhibition and portfolio platform used in academic and professional environments. It focuses on visibility, peer evaluation, and performance analytics.
+
+The interface is clean, card-based, and optimized for desktop usage.
+
+2. Goals & Learning Objectives
+Primary Goals
+
+Provide a digital portfolio for robotics projects
+
+Enable peer-based feedback and evaluation
+
+Practice frontend architecture using Vanilla JavaScript
+
+Simulate real-world project review platforms
+
+Learning Outcomes
+
+Master CSS Flexbox and Grid layouts
+
+Implement dynamic DOM manipulation
+
+Work with localStorage for data persistence
+
+Build rating and sorting algorithms
+
+Improve modular code structure
+
+3. Target Users
+
+Robotics students and project teams
+
+College evaluators
+
+Technical clubs
+
+Faculty mentors (simulation)
+
+4. Design System & UI Principles
+Visual Style
+
+Light theme with neutral background
+
+Rounded cards with soft shadows
+
+Primary color: Blue
+
+Accent color: Orange/Green (ratings)
+
+Gray for secondary text
+
+Layout Rules
+
+Top navigation bar
+
+Header with page title and CTA
+
+Grid-based main layout
+
+Consistent spacing
+
+No external UI frameworks
+
+5. Application Structure (Screens)
+5.1 Home / Gallery Screen
+Purpose
+
+Acts as the main landing page displaying featured and uploaded projects.
+
+A. Navigation Bar
+
+Logo: “RoboShow”
+
+Menu:
+
+Home
+
+Upload Project
+
+Top Rated
+
+About
+
+Flexbox-based horizontal layout
+
+B. Header Section
+
+Page title: Project Gallery
+
+Search bar (UI only)
+
+“+ Add Project” button
+
+C. Top Rated Projects Section (Homepage)
+Purpose
+
+Highlights best-performing student projects.
+
+Components
+
+Section Title: Top Rated Projects
+
+Displays Top 6 projects
+
+Ranked based on average rating
+
+Each Card Includes:
+
+Image placeholder
+
+Title
+
+Team name
+
+Star rating
+
+View button
+
+Implementation
+
+Sort projects by avgRating
+
+Pick top 6
+
+Render dynamically
+
+D. Project Gallery Grid
+
+Displays all uploaded projects.
+
+Each Card Contains:
+
+Image placeholder
+
+Title
+
+Short description
+
+Team name
+
+Average rating
+
+View details button
+
+Implementation
+
+CSS Grid layout
+
+Dynamic rendering from localStorage
+
+E. Student Testimonials Section (Before Footer)
+Purpose
+
+Shows student experiences and builds trust.
+
+Components
+
+Section Title: What Students Say
+
+3–5 testimonial cards
+
+Each Card:
+
+Student name
+
+College/Team
+
+Feedback text
+
+Star rating
+
+Implementation
+
+Static JS array
+
+Render using DOM
+
+F. FAQ Section
+Purpose
+
+Provides answers to common questions.
+
+Components
+
+Section Title: Frequently Asked Questions
+
+Accordion layout
+
+Sample FAQs:
+
+How do I upload a project?
+
+Can I edit my project later?
+
+Is registration required?
+
+How is rating calculated?
+
+Can I delete feedback?
+
+Implementation
+
+Toggle answers using JavaScript
+
+G. Footer
+
+Copyright
+
+Contact info
+
+Social links (UI only)
+
+5.2 Upload Project Screen
+Purpose
+
+Allows students to submit project information.
+
+Form Fields
+Project Information
+
+Project Title
+
+Team Name
+
+Description
+
+Technologies Used
+
+Category
+
+Line Follower
+
+Robotic Arm
+
+IoT Robot
+
+AI Robot
+
+Custom
+
+Media
+
+Image Upload (UI only)
+
+Preview placeholder
+
+Actions
+
+Reset
+
+Submit
+
+Implementation Rules
+
+Basic validation
+
+Auto-generate ID
+
+Store in localStorage
+
+Redirect to Home
+
+5.3 Project Detail & Feedback Screen
+Purpose
+
+Displays full project info and feedback system.
+
+A. Project Details
+
+Large image
+
+Full description
+
+Team info
+
+Tech stack
+
+Submission date
+
+B. Rating System
+
+1–5 clickable stars
+
+Hover effect
+
+Live average update
+
+C. Feedback Form
+
+Name (optional)
+
+Comment
+
+Submit button
+
+D. Feedback List
+
+Name
+
+Rating
+
+Comment
+
+Date
+
+Implementation
+
+Store feedback in project object
+
+Recalculate ratings
+
+Update UI in real-time
+
+6. Data Model (LocalStorage)
+{
+  "id": "RB-1023",
+  "title": "Autonomous Line Follower",
+  "team": "RoboTech Squad",
+  "description": "A robot that follows paths using IR sensors.",
+  "category": "Line Follower",
+  "technologies": ["Arduino", "IR Sensor", "C++"],
+  "avgRating": 4.5,
+  "totalRatings": 12,
+  "image": "placeholder.png",
+  "createdAt": "2026-01-20",
+  "feedback": [
+    {
+      "name": "Aman",
+      "rating": 5,
+      "comment": "Very accurate movement!",
+      "date": "2026-01-21"
+    }
+  ]
+}
+
+7. Interactivity Requirements (JavaScript)
+
+Add project → save to localStorage
+
+Render gallery dynamically
+
+Submit feedback
+
+Update ratings
+
+Sort top projects
+
+FAQ toggle system
+
+Live testimonial rendering
+
+8. Technical Constraints (Very Important)
+✅ Allowed
+
+HTML5
+
+CSS3 (Flexbox, Grid)
+
+Vanilla JavaScript
+
+localStorage
+
+❌ Not Allowed
+
+React / Vue / Angular
+
+Bootstrap / Tailwind
+
+jQuery
+
+Backend APIs
+
+External libraries
+
+9. Team Role Mapping
+Role	Responsibility
+UI Designer	Layout, colors, responsiveness
+Frontend Dev 1	Gallery, upload system
+Frontend Dev 2	Feedback, rating, sorting logic
+Documentation/Test Lead	PRD, testing, user guide
+10. Success Criteria (Evaluation-Ready)
+
+Homepage shows top 6 projects
+
+Testimonials visible before footer
+
+FAQ works correctly
+
+Projects persist after refresh
+
+Ratings update live
+
+Clean UI without frameworks
+
+Well-structured code

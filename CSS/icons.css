@@ -1,0 +1,137 @@
+/* ============================================
+   RoboShow - Icon Styles
+   ============================================ */
+
+/* Base icon styles */
+.icon {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    vertical-align: middle;
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+.icon-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+.icon-md {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.icon-lg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.icon-xl {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* User menu styles */
+.user-menu {
+    position: relative;
+}
+
+.user-menu-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 150ms ease-in-out;
+    color: #3d3629;
+    font-weight: 500;
+}
+
+.user-menu-button:hover {
+    background-color: #faf8f5;
+    color: #d97706;
+}
+
+.user-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 250ms ease-in-out;
+    z-index: 1000;
+}
+
+.user-menu:hover .user-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #3d3629;
+    transition: all 150ms ease-in-out;
+    border-left: 3px solid transparent;
+}
+
+.user-dropdown a:hover {
+    background-color: #fefdfb;
+    color: #d97706;
+    border-left-color: #d97706;
+}
+
+/* Icon in text */
+.icon-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Navbar auth buttons */
+.navbar-menu .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.auth-item {
+    display: flex;
+    align-items: center;
+}
+
+/* Protected page notice */
+.auth-notice {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.auth-notice h3 {
+    color: #d97706;
+    margin-bottom: 0.75rem;
+}
+
+.auth-notice p {
+    color: #3d3629;
+    margin-bottom: 1.25rem;
+}
+
+.auth-notice-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}

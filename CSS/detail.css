@@ -1,0 +1,275 @@
+/* ============================================
+   RoboShow - Project Detail Page Styles
+   ============================================ */
+
+.detail-page {
+    padding: 3rem 0;
+    min-height: calc(100vh - 200px);
+}
+
+/* Project Details Section */
+.project-detail {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+}
+
+.project-hero {
+    position: relative;
+    height: 400px;
+    background-color: #f5f1ea;
+    overflow: hidden;
+}
+
+.project-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 2.5rem;
+}
+
+.project-header {
+    margin-bottom: 1.5rem;
+}
+
+.project-meta {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.project-team {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #5c5242;
+}
+
+.project-team::before {
+    content: "👥";
+}
+
+.project-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #5c5242;
+}
+
+.project-date::before {
+    content: "📅";
+}
+
+.project-category {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.project-description {
+    line-height: 1.8;
+    color: #3d3629;
+    margin-bottom: 1.5rem;
+}
+
+.project-technologies {
+    margin-bottom: 1.5rem;
+}
+
+.project-technologies h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Rating Section */
+.rating-section {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.rating-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.rating-header h3 {
+    margin-bottom: 0.75rem;
+}
+
+.rating-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.rating-stars-large {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.rating-stars-large .star {
+    font-size: 2rem;
+}
+
+.rating-info {
+    color: #5c5242;
+    font-size: 0.875rem;
+}
+
+/* Feedback Section */
+.feedback-section {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+}
+
+.feedback-form {
+    background-color: #fefdfb;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.feedback-form h3 {
+    margin-bottom: 1.25rem;
+}
+
+.feedback-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+/* Feedback List */
+.feedback-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.feedback-list h3 {
+    margin-bottom: 1.5rem;
+}
+
+.feedback-item {
+    padding: 1.25rem;
+    background-color: #fefdfb;
+    border-radius: 0.75rem;
+    border-left: 4px solid #d97706;
+}
+
+.feedback-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.feedback-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.feedback-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.feedback-author-info h4 {
+    margin-bottom: 0;
+    font-size: 1rem;
+    color: #1a1410;
+}
+
+.feedback-date {
+    font-size: 0.75rem;
+    color: #8b7e6b;
+}
+
+.feedback-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.feedback-rating .star {
+    font-size: 1rem;
+}
+
+.feedback-comment {
+    color: #3d3629;
+    line-height: 1.6;
+}
+
+.no-feedback {
+    text-align: center;
+    padding: 2rem;
+    color: #8b7e6b;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #d97706;
+    font-weight: 500;
+    transition: all 150ms ease-in-out;
+}
+
+.back-button:hover {
+    gap: 0.75rem;
+}
+
+.back-button::before {
+    content: "←";
+    font-size: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-hero {
+        height: 250px;
+    }
+
+    .project-content,
+    .feedback-section {
+        padding: 1.5rem;
+    }
+
+    .project-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

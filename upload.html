@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Upload your robotics project to RoboShow">
+    <title>Upload Project - RoboShow</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/upload.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">RoboShow</a>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="upload.html">Upload Project</a></li>
+                <li><a href="index.html#top-rated">Top Rated</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Upload Page Content -->
+    <div class="upload-page">
+        <div class="upload-container">
+
+            <!-- Header -->
+            <div class="upload-header">
+                <h1>📤 Upload Your Project</h1>
+                <p>Share your amazing robotics project with the community</p>
+            </div>
+
+            <!-- Upload Form -->
+            <form id="upload-form" class="upload-form">
+
+                <!-- Project Title & Team Name -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="project-title" class="form-label">Project Title *</label>
+                        <input type="text" id="project-title" class="form-input"
+                            placeholder="e.g., Autonomous Line Follower" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="team-name" class="form-label">Team Name *</label>
+                        <input type="text" id="team-name" class="form-input" placeholder="e.g., RoboTech Squad"
+                            required>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="description" class="form-label">Description *</label>
+                    <textarea id="description" class="form-textarea"
+                        placeholder="Describe your project, its features, and what makes it unique..."
+                        required></textarea>
+                </div>
+
+                <!-- Category -->
+                <div class="form-group">
+                    <label for="category" class="form-label">Category *</label>
+                    <select id="category" class="form-select" required>
+                        <option value="">Select a category</option>
+                        <option value="Line Follower">Line Follower</option>
+                        <option value="Robotic Arm">Robotic Arm</option>
+                        <option value="IoT Robot">IoT Robot</option>
+                        <option value="AI Robot">AI Robot</option>
+                        <option value="Custom">Custom</option>
+                    </select>
+                </div>
+
+                <!-- Technologies Used -->
+                <div class="form-group">
+                    <label for="technologies" class="form-label">Technologies Used *</label>
+                    <input type="text" id="technologies" class="form-input"
+                        placeholder="e.g., Arduino, Python, OpenCV (Press Enter to add)">
+                    <p class="text-muted" style="font-size: 0.875rem; margin-top: 0.5rem;">
+                        Type a technology and press Enter to add it as a tag
+                    </p>
+                    <div id="tech-tags" class="tech-tags"></div>
+                </div>
+
+                <!-- Image Upload (UI Only) -->
+                <div class="form-group image-upload">
+                    <label class="form-label">Project Image (Coming Soon)</label>
+                    <div class="image-preview">
+                        <div class="preview-placeholder">
+                            <div class="preview-placeholder-icon">📷</div>
+                            <p>Image upload coming soon<br>Using default placeholder</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="button" id="reset-btn" class="btn btn-outline">Reset Form</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Submit Project</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 RoboShow. Built with ❤️ for robotics enthusiasts.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/storage.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/upload.js"></script>
+
+</body>
+
+</html>
